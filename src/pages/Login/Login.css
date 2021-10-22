@@ -8,6 +8,7 @@
   border-radius: 5px;
   padding: 20px 15px;
   flex-wrap: wrap;
+  box-shadow: 5px 5px 5px darkgrey;
 }
 
 main {
