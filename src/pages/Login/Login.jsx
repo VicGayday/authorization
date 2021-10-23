@@ -1,10 +1,14 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import {useHistory} from 'react-router-dom'
+
+
 import {updateLogin, updatePassword, signIn} from '../../redux/reducers/auth'
 import './Login.css'
 
 const Login = () => {
 
+  const history = useHistory()
   const dispatch = useDispatch()
   const login = useSelector(s => s.auth.login)
   const password = useSelector((s) => s.auth.password);
@@ -21,9 +25,7 @@ const Login = () => {
           id="username"
           value={login}
           placeholder="Username" />
-        </form>
 
-        <form>
           <label htmlFor="password">Password</label>
           <input
           onChange ={(e) => {dispatch(updatePassword(e.target.value))}}
@@ -34,7 +36,7 @@ const Login = () => {
           placeholder="******************"
           />
         </form>
-        <button onClick={() => {dispatch(signIn())}} className="signin-button" type="button">
+        <button onClick={() => history.push('/profile')} className="signin-button" type="button">
           Sign In
         </button>
       </section>
@@ -43,3 +45,4 @@ const Login = () => {
 }
 
 export default Login;
+//onClick={() => {dispatch(signIn())}}//

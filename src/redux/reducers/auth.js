@@ -1,11 +1,13 @@
 const UPDATE_LOGIN = 'UPDATE_LOGIN'
 const UPDATE_PASSWORD = "UPDATE_PASSWORD"
-const LOGIN = 'LOGIN'
+// const LOGIN = 'LOGIN'
 
 const initialState = {
-  login: '',
-  password: ''
-}
+  login: "",
+  password: "",
+  correctLogin: "developer21",
+  correctPassword: "123456"
+};
 
 export const auth = (state = initialState, action) => {
   switch(action.type) {
@@ -29,19 +31,19 @@ export function updatePassword(password) {
   return { type: UPDATE_PASSWORD, password };
 }
 
-export function signIn() {
-  return (dispatch, getState) => {
-    const {login, password} = getState().auth
-    fetch('api/v1/auth', {
-      method: 'POST',
-      body: {
-        login,
-        password
-      }
-    })
-    .then(r => r.json())
-    .then(data => {
-      dispatch({type: LOGIN, token: data.token})
-    })
-  }
-}
+// export function signIn() {
+  // return (dispatch, getState) => {
+  //   const {login, password} = getState().auth
+  //   fetch('api/v1/auth', {
+  //     method: 'POST',
+  //     body: {
+  //       login,
+  //       password
+  //     }
+  //   })
+  //   .then(r => r.json())
+  //   .then(data => {
+  //     dispatch({type: LOGIN, token: data.token})
+  //   })
+  // }
+// }
