@@ -1,25 +1,31 @@
 const UPDATE_LOGIN = 'UPDATE_LOGIN'
 const UPDATE_PASSWORD = "UPDATE_PASSWORD"
-// const LOGIN = 'LOGIN'
+const UPDATE_AUTH = "UPDATE_AUTH";
 
 const initialState = {
   login: "",
   password: "",
   correctLogin: "developer21",
-  correctPassword: "123456"
+  correctPassword: "123456",
+  isAuth: false,
 };
 
 export const auth = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case UPDATE_LOGIN: {
-      return {...state, login: action.login}
+      return { ...state, login: action.login };
     }
 
     case UPDATE_PASSWORD: {
-      return {...state, password: action.password}
+      return { ...state, password: action.password };
     }
 
-    default: return state
+    case UPDATE_AUTH: {
+      return { ...state, isAuth: action.isAuth };
+    }
+
+    default:
+      return state;
   }
 }
 
@@ -31,19 +37,6 @@ export function updatePassword(password) {
   return { type: UPDATE_PASSWORD, password };
 }
 
-// export function signIn() {
-  // return (dispatch, getState) => {
-  //   const {login, password} = getState().auth
-  //   fetch('api/v1/auth', {
-  //     method: 'POST',
-  //     body: {
-  //       login,
-  //       password
-  //     }
-  //   })
-  //   .then(r => r.json())
-  //   .then(data => {
-  //     dispatch({type: LOGIN, token: data.token})
-  //   })
-  // }
-// }
+export function signIn(isAuth) {
+  return { type: UPDATE_AUTH, isAuth };
+}
