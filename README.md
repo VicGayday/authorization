@@ -1,4 +1,4 @@
-Plain authorization application-page using react and react-router
+Plain authorization application-page using react, react-router and redux.
 
 ![изображение](https://user-images.githubusercontent.com/61756803/138564494-99214a40-a962-40b0-800b-77ec84b17e6f.png)
 
